@@ -1,19 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+
+  body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: linear-gradient(to bottom, #182f3f, #01060a); 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-
-@layer base {
-  :root {
-    --radius: 0.5rem;
   }
 }

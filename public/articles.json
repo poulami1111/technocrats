@@ -1,0 +1,206 @@
+ [
+    {
+      "id": 1,
+      "category": "HEALTH",
+      "toptitle": "Dr. Amanda Rivers",
+      "title": "The Future of Heart Health: Advances in Cardiac Care",
+      "data": "January 5, 2024",
+      "author": "Dr. Amanda Rivers",
+     "description":
+        "Explore cutting-edge advancements in cardiac care that are revolutionizing heart health and saving lives.",
+      "imageUrl": "/images/card1.png",
+      "header": "Transforming Heart Health with Technology",
+      "intro": "Recent innovations are changing the landscape of cardiac care, making treatments more effective and accessible.",
+     "paragraphs": [
+        "Heart disease remains a leading health concern worldwide, but new technologies are offering hope for better management and prevention.",
+        "From wearable devices to AI-driven diagnostics, cardiac care is becoming more personalized and precise."
+      ],
+      "sections": [
+        {
+          "heading": "Technological Breakthroughs in Cardiac Care",
+         "content": [
+            "Wearable health devices are enabling real-time heart monitoring and early detection of irregularities.",
+            "AI-powered tools are assisting doctors in diagnosing and predicting heart conditions with greater accuracy."
+          ]
+        },
+        {
+          "heading": "The Role of Preventive Care",
+         "content": [
+            "Lifestyle changes, supported by digital tools, are empowering individuals to take control of their heart health."
+          ]
+        }
+      ],
+      "image": "/images/card1.png"
+    },
+    {
+      "id": 2,
+      "category": "HEALTH",
+      "toptitle": "Dr. Michael Thompson",
+      "title": "Nutrition Trends: How Plant-Based Diets Are Redefining Wellness",
+      "data": "February 12, 2024",
+      "author": "Dr. Michael Thompson",
+     "description":
+        "Discover why plant-based diets are growing in popularity and how they benefit overall wellness.",
+      "imageUrl": "/images/card2.jpg",
+      "header": "The Rise of Plant-Based Diets",
+      "intro": "More people are turning to plant-based diets for health, environmental, and ethical reasons.",
+     "paragraphs": [
+        "Plant-based eating has been linked to lower risks of chronic diseases such as diabetes and heart disease.",
+        "The availability of plant-based alternatives makes it easier than ever to adopt this lifestyle."
+      ],
+      "sections": [
+        {
+          "heading": "Health Benefits of Plant-Based Diets",
+         "content": [
+            "Rich in nutrients: These diets offer a variety of vitamins, minerals, and antioxidants.",
+            "Lower disease risk: Studies show reduced risks for heart disease and certain cancers."
+          ]
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 3,
+      "category": "Neurological",
+      "toptitle": "Ethan Caldwell",
+      "title": "AI Revolutionizing Neurological Care in 2024",
+      "data": "March 10, 2024",
+      "author": "Ethan Caldwell",
+     "description":
+        "Discover how AI is transforming neurological care through advanced diagnostics and personalized treatment.",
+      "imageUrl": "/images/brain.jpg",
+      "header": "AI Meets Neurology",
+      "intro": "Doctors and researchers are leveraging AI to improve neurological diagnostics and patient outcomes.",
+     "paragraphs": [
+        "From detecting neurological disorders earlier to enhancing treatment precision, AI is reshaping the field of neurology.",
+        "With AI-driven tools, healthcare providers can create personalized treatment plans tailored to each patient's unique condition."
+      ],
+      "sections": [
+        {
+          "heading": "Enhancing Neurological Diagnostics",
+         "content": [
+            "AI-powered imaging tools analyze brain scans with remarkable accuracy, identifying patterns that may indicate conditions like Alzheimer’s or epilepsy.",
+            "Machine learning algorithms help in early detection of neurological disorders, improving the chances of effective intervention."
+          ]
+        },
+        {
+          "heading": "Personalized Neurological Treatments",
+         "content": [
+            "AI aids in tailoring treatments based on individual genetic, environmental, and lifestyle factors.",
+            "Robotic-assisted surgeries are becoming more precise, reducing recovery time for patients with neurological conditions."
+          ]
+        }
+      ],
+      "image": "/images/brain.jpg"
+    },
+    
+    {
+      "id": 4,
+      "category": "Mental Health",
+      "toptitle": "Ethan Caldwell",
+      "title": "How Blockchain Is Revolutionizing Healthcare",
+      "date": "April 5, 2024",
+      "author": "Ethan Caldwell",
+      "description": "Explore how blockchain is solving key challenges in healthcare, from data security to transparency.",
+      "imageUrl": "/images/mental.png",
+      "header": "Blockchain’s Role in Healthcare",
+      "intro": "The healthcare sector is adopting blockchain to ensure secure and transparent data management.",
+      "paragraphs": [
+        "Blockchain offers decentralized and tamper-proof data storage.",
+        "This technology is enhancing trust between patients, providers, and insurers."
+      ],
+      "sections": [
+        {
+          "heading": "Key Applications in Healthcare",
+          "content": [
+            "Secure data sharing between healthcare providers.",
+            "Ensuring the authenticity of medical records."
+          ]
+        }
+      ],
+      "image": ""
+    },
+    
+    {
+      "id": 5,
+      "category": "Nutrition",
+      "toptitle": "Sophia Carter",
+      "title": "Nutrition 2024: Innovations Driving Sustainability",
+      "date": "May 20, 2024",
+      "author": "Sophia Carter",
+      "description": "Discover innovative solutions in nutrition that are promoting health and sustainability in 2024.",
+      "imageUrl": "/images/nutrition.png",
+      "header": "Innovating for a Sustainable Future",
+      "intro": "From plant-based diets to sustainable food practices, the future of nutrition is evolving.",
+      "paragraphs": [
+        "Governments and companies are investing heavily in sustainable food production methods.",
+        "Consumer behavior is shifting towards more environmentally friendly and healthy food choices."
+      ],
+      "sections": [
+        {
+          "heading": "Nutrition Innovations",
+          "content": [
+            "Plant-based diets are gaining popularity due to their environmental and health benefits.",
+            "Sustainable farming practices are helping reduce the environmental footprint of food production."
+          ]
+        }
+      ],
+      "image": ""
+    }
+,    
+    {
+      "id": 6,
+      "category": "Fitness",
+      "toptitle": "David Lee",
+      "title": "AI Startups Redefining the Future of Medicine",
+      "data": "June 15, 2024",
+      "author": "David Lee",
+     "description":
+        "Learn how AI-focused startups are transforming medicine and enhancing patient care.",
+      "imageUrl": "/images/fitness.jpg",
+      "header": "AI Driving Medical Breakthroughs",
+      "intro": "Startups are at the forefront of integrating AI into healthcare for better outcomes.",
+     "paragraphs": [
+        "AI-powered tools are enabling early diagnosis and precision treatments.",
+        "Startups are exploring new frontiers in personalized medicine."
+      ],
+      "sections": [
+        {
+          "heading": "Startups Leading the Charge",
+         "content": [
+            "AI is helping in drug discovery and development.",
+            "Telemedicine platforms are leveraging AI for remote diagnostics."
+          ]
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 7,
+      "category": "WELLNESS",
+      "toptitle": "Emily Johnson",
+      "title": "The Mental Health Movement: Breaking the Stigma",
+      "data": "July 10, 2024",
+      "author": "Emily Johnson",
+     "description":
+        "Explore how mental health awareness is gaining traction and breaking barriers.",
+      "imageUrl": "/images/card3.png",
+      "header": "Shifting Perspectives on Mental Health",
+      "intro": "Increased awareness is making mental health a global priority.",
+     "paragraphs": [
+        "Open conversations about mental health are reducing stigma.",
+        "Access to therapy and support is improving worldwide."
+      ],
+      "sections": [
+        {
+          "heading": "Fostering Awareness",
+         "content": [
+            "Community programs and campaigns are driving change.",
+            "Digital platforms are providing accessible mental health resources."
+          ]
+        }
+      ],
+      "image": ""
+    }
+   
+  ]
