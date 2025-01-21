@@ -85,7 +85,7 @@ const Page = () => {
         <h1 className="text-5xl font-bold mb-4">
           Welcome to Your Healthcare Journey
         </h1>
-        <p className="text-md mb-6 hidden md:blog max-w-3xl mx-auto">
+        <p className="text-md mb-6 hidden md:block max-w-3xl mx-auto">
           At our platform, we believe in empowering you with the right tools and
           information to make informed decisions about your health. Whether
           you&apos;re seeking a trusted hospital for treatment, looking to explore
