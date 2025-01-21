@@ -71,7 +71,7 @@ const Page = () => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <div className="text-white overflow-hidden flex flex-col">
+    <div className="text-white overflow-hidden flex flex-col mb-8">
       <Navbar />
       <Image
         src={"/images/bg2.png"}
