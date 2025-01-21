@@ -1,18 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Hero from "./components/Home/Hero";
 import Imagebackground from "./components/Home/Image";
 import Cards from "./components/Home/Cards";
 import SectionWithImage from "./components/Home/SectionImage";
 
 const HomePage = () => {
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    console.log("Search Query:", query);
-    // Implement additional search logic here if needed.
-  };
 
   return (
     <div className="flex flex-col relative">

@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 interface Hospital {
   id: number;
   tags: {
-    [key: string]: any;
+    [key: string]: string;
   };
 }
 
@@ -85,12 +85,12 @@ const Page = () => {
         <h1 className="text-5xl font-bold mb-4">
           Welcome to Your Healthcare Journey
         </h1>
-        <p className="text-md mb-6 max-w-3xl mx-auto">
+        <p className="text-md mb-6 hidden md:blog max-w-3xl mx-auto">
           At our platform, we believe in empowering you with the right tools and
           information to make informed decisions about your health. Whether
-          you’re seeking a trusted hospital for treatment, looking to explore
+          you&apos;re seeking a trusted hospital for treatment, looking to explore
           healthcare innovations, or simply learning about medical services,
-          we're here to guide you every step of the way. Join us in discovering
+          we&apos;re here to guide you every step of the way. Join us in discovering
           hospitals that are dedicated to providing exceptional care and
           expertise.
         </p>
@@ -98,30 +98,31 @@ const Page = () => {
 
       {/* City Selection */}
       <div className="flex justify-center mt-10 relative">
-        <div className="flex flex-col items-center mt-6">
-          <p className="text-white mb-2 text-5xl font-semibold">
-            Which city are you in?
-          </p>
-          <select
-            className="bg-black text-white rounded-lg px-4 py-2"
-            value={selectedCity.name}
-            onChange={(e) => {
-              const cityName = e.target.value;
-              const city = cities.find((city) => city.name === cityName);
-              if (city) {
-                setSelectedCity(city);
-                setCurrentPage(1);
-              }
-            }}
-          >
-            {cities.map((city) => (
-              <option key={city.name} value={city.name}>
-                {city.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+  <div className="flex flex-col items-center mt-6">
+    <p className="text-white mb-2 text-3xl sm:text-4xl lg:text-5xl font-semibold">
+      Which city are you in?
+    </p>
+    <select
+      className="bg-black text-white rounded-lg px-6 py-3 sm:px-4 sm:py-2"
+      value={selectedCity.name}
+      onChange={(e) => {
+        const cityName = e.target.value;
+        const city = cities.find((city) => city.name === cityName);
+        if (city) {
+          setSelectedCity(city);
+          setCurrentPage(1);
+        }
+      }}
+    >
+      {cities.map((city) => (
+        <option key={city.name} value={city.name}>
+          {city.name}
+        </option>
+      ))}
+    </select>
+  </div>
+</div>
+
 
       {/* Hospital Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
