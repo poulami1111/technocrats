@@ -57,7 +57,7 @@
           ]
         }
       ],
-      "image": ""
+      "image": "/images/card2.jpg"
     },
     {
       "id": 3,
@@ -118,7 +118,7 @@
           ]
         }
       ],
-      "image": ""
+      "image": " /images/mental.png"
     },
     
     {
@@ -145,7 +145,7 @@
           ]
         }
       ],
-      "image": ""
+      "image": "/images/nutrition.png"
     }
 ,    
     {
@@ -173,7 +173,7 @@
           ]
         }
       ],
-      "image": ""
+      "image": "/images/fitness.jpg"
     },
     {
       "id": 7,
@@ -200,7 +200,7 @@
           ]
         }
       ],
-      "image": ""
+      "image": "/images/card3.png"
     }
    
   ]

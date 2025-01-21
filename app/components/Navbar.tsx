@@ -1,66 +1,93 @@
+
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center bg-blue-950/30 px-6 py-2 font-serif">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center bg-blue-950/30 px-6 py-3 font-serif">
+      {/* Logo Section */}
       <div className="flex items-center space-x-4">
-        <Image width={40} height={40} src="/logo.png" alt="Logo" className="h-10" />
+        <Image
+          width={100}
+          height={40}
+          src="/images/logo.png"
+          alt="Logo"
+          className="h-10"
+        />
       </div>
-      <ul className="flex space-x-6 text-white font-medium">
-        <li>
+
+      {/* Mobile Menu Toggle */}
+      <button
+        className="lg:hidden text-white text-2xl"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle Menu"
+      >
+        ☰
+      </button>
+
+      {/* Navigation Links */}
+      <ul
+        className={`${
+          isMenuOpen ? "flex" : "hidden"
+        } lg:flex lg:space-x-6 absolute lg:static top-16 left-0 w-full lg:w-auto bg-blue-950/90 lg:bg-transparent text-white font-medium flex-col lg:flex-row lg:items-center`}
+      >
+        <li className="lg:my-0 my-2">
           <a
             href="/"
-            className="bg-blue-50 bg-opacity-20 rounded-md drop-shadow-lg backdrop-blur-lg px-2 py-1"
+            className="block text-center lg:inline bg-blue-50 bg-opacity-20 hover:bg-opacity-40 rounded-md drop-shadow-lg backdrop-blur-lg px-4 py-2 transition duration-300"
           >
             Home
           </a>
         </li>
-        <li>
+        <li className="lg:my-0 my-2">
           <a
-            href="/services"
-            className="bg-blue-50 bg-opacity-20 rounded-md drop-shadow-lg backdrop-blur-lg px-2 py-1"
+            href="/reports"
+            className="block text-center lg:inline bg-blue-50 bg-opacity-20 hover:bg-opacity-40 rounded-md drop-shadow-lg backdrop-blur-lg px-4 py-2 transition duration-300"
           >
-            Services
+            Reports
           </a>
         </li>
-        <li>
+        <li className="lg:my-0 my-2">
           <a
-            href="/contact"
-            className="bg-blue-50 bg-opacity-20 rounded-md drop-shadow-lg backdrop-blur-lg px-2 py-1"
+            href="/search"
+            className="block text-center lg:inline bg-blue-50 bg-opacity-20 hover:bg-opacity-40 rounded-md drop-shadow-lg backdrop-blur-lg px-4 py-2 transition duration-300"
           >
-            Contact us
+            Hospitals
           </a>
         </li>
-        <li>
+        <li className="lg:my-0 my-2">
           <a
             href="/blogs"
-            className="bg-blue-50 bg-opacity-20 rounded-md drop-shadow-lg backdrop-blur-lg px-2 py-1"
+            className="block text-center lg:inline bg-blue-50 bg-opacity-20 hover:bg-opacity-40 rounded-md drop-shadow-lg backdrop-blur-lg px-4 py-2 transition duration-300"
           >
             Blogs
           </a>
         </li>
-        <li>
+        {/* <li className="lg:my-0 my-2">
           <a
             href="/about"
-            className="bg-blue-50 bg-opacity-20 rounded-md drop-shadow-lg backdrop-blur-lg px-2 py-1"
+            className="block text-center lg:inline bg-blue-50 bg-opacity-20 hover:bg-opacity-40 rounded-md drop-shadow-lg backdrop-blur-lg px-4 py-2 transition duration-300"
           >
-            About us
+            About Us
+          </a>
+        </li> */}
+        <li className="lg:my-0 my-2">
+          <a
+            href="/signup"
+            className="block text-center lg:inline text-white bg-blue-50 bg-opacity-20 hover:bg-opacity-40 rounded-md drop-shadow-lg backdrop-blur-lg px-4 py-2 transition duration-300"
+          >
+            Sign Up / Sign In
           </a>
         </li>
       </ul>
-      <div>
-        <a
-          href="/signup"
-          className="text-white text-sm bg-blue-50 bg-opacity-20 rounded-md drop-shadow-lg backdrop-blur-lg px-2 py-2"
-        >
-          Sign up / Sign in
-        </a>
-      </div>
     </nav>
   );
 };
 
 export default Navbar;
+
+
 
 

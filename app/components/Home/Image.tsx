@@ -11,9 +11,9 @@ const Imagebackground = () => {
         <Image
           src="/images/man.jpg"
           alt="background"
-          width={1400}
+          width={1600}
           height={1200}
-          className="opacity-80 object-cover "
+          className="opacity-80 object-cover w-full"
         />
       </div>
 
@@ -23,7 +23,7 @@ const Imagebackground = () => {
         <Navbar />
 
         {/* Main Content */}
-        <div className="items-center justify-center min-h-screen">
+        <div className="items-center justify-center hidden md:block min-h-screen">
           {/* Glass Divs for Health Info */}
           <div className="flex flex-wrap gap-6 justify-center mt-12 px-4">
             <div className="bg-white/5 backdrop-blur-lg h-24 absolute inset-0 left-8 top-16 border border-white/30 p-4 rounded-xl shadow-lg max-w-xs">

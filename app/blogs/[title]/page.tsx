@@ -46,21 +46,20 @@ const ArticleDetail = ({ params }: { params: { title: string } }) => {
     title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   if (!article) {
-    return <p>Article not found</p>;
+    return <p className="text-center text-white mt-12">Article not found</p>;
   }
 
   return (
-    <div className="">
-      <Navbar/>
+    <div>
+      <Navbar />
+
       {/* Header Section */}
-      <div className="px-12 py-16 absolute inset-0">
-        <div className="text-center px-10">
-          <h1 className="text-6xl font-bold text-white">{article.title}</h1>
-          <p className="mt-4 text-lg px-16 text-white/90">{article.description}</p>
-          <button className="mt-9 bg-slate-100 rounded-md py-2 px-4">
-            {article.category}
-          </button>
-        </div>
+      <div className=" relative text-center px-6 py-16 z-10">
+        <h1 className="text-xl sm:text-6xl font-bold text-white">{article.title}</h1>
+        <p className="mt-4 text-xs hidden md:block sm:text-lg text-white/90">{article.description}</p>
+        <button className="mt-6 bg-slate-100 text-black rounded-md py-2 px-4">
+          {article.category}
+        </button>
       </div>
 
       {/* Image */}
@@ -70,19 +69,21 @@ const ArticleDetail = ({ params }: { params: { title: string } }) => {
           height={450}
           alt="article-image"
           src={article.imageUrl}
-          className="rounded-xl object-cover opacity-35 bg-black/50 relative -z-10 h-96"
+          className="w-full h-64 sm:h-96 -mt-96 object-cover hidden md:block  opacity-80"
         />
       )}
-    
-      <div className="px-20">
-        <div className="flex justify-between py-4 px-40 mt-6 sm:px-6 lg:px-2 w-full">
-          <div className="w-full md:w-[70%] border border-white/10 rounded-md px-4 py-2">
-            <section className="mb-12">
-              <h1 className="text-ld mb-6 text-white">
+
+      {/* Content Section */}
+      <div className="px-6 sm:px-12 lg:px-20 py-8">
+        <div className="flex flex-col md:flex-row gap-12">
+          {/* Main Content */}
+          <div className="w-full md:w-[70%] bg-blue-950/20 p-6 rounded-md shadow-md border border-white/10">
+            <section className="mb-8">
+              <h1 className="text-xl sm:text-2xl mb-4 text-white">
                 {article.header} {article.intro}
               </h1>
             </section>
-            <div className="absolute  bg-[rgba(99,102,241,0.4)] w-80 h-80 blur-3xl -z-10  right-20  shadow-[0_0_35px_5px_rgba(255,193,69,0.8)]  -bottom-8"></div>
+
             {article.paragraphs.map((paragraph, idx) => (
               <p key={idx} className="text-base text-gray-200 leading-relaxed mb-4">
                 {paragraph}
@@ -90,53 +91,46 @@ const ArticleDetail = ({ params }: { params: { title: string } }) => {
             ))}
 
             {article.sections.map((section, index) => (
-              <section key={index} className="mb-12">
-                <h2 className="text-4xl font-semibold mb-4 text-[rgb(238,238,242)]">
+              <section key={index} className="mb-8">
+                <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
                   {section.heading}
                 </h2>
                 {section.content.map((content, idx) => (
-                  <p key={idx} className="text-base text-gray-100 leading-relaxed mb-4">
+                  <p key={idx} className="text-base text-gray-200 leading-relaxed mb-4">
                     {content}
                   </p>
                 ))}
               </section>
             ))}
-           
+
             {article.image && (
               <Image
                 width={700}
                 height={400}
-                alt="card-details"
+                alt="article-details"
                 src={article.image}
-                className="object-cover rounded-xl"
+                className="rounded-md object-cover mt-6"
               />
             )}
           </div>
-         
-          <div className="hidden md:block md:w-[30%] ml-32">
-            <div>
-              <BloggerCard />
-            </div>
 
-            <div className="mt-10">
-              <ArticleCard2
-                category="Management"
-                author="Ethan Caldwell"
-                date="July 7, 2024"
-                title="AI in Business Management: Improving Efficiency and Decision Making"
-                imageUrl="https://revision.codesupply.co/revision/wp-content/uploads/sites/2/2024/09/demo-image-0021-768x432.webp"
-              />
-            </div>
-            <div className="mt-10">
-              <WorkExperience />
-            </div>
+          {/* Sidebar */}
+          <div className="hidden md:block md:w-[30%] space-y-8">
+            <BloggerCard />
+            <ArticleCard2
+              category="Management"
+              author="Ethan Caldwell"
+              date="July 7, 2024"
+              title="AI in Business Management: Improving Efficiency and Decision Making"
+              imageUrl="https://revision.codesupply.co/revision/wp-content/uploads/sites/2/2024/09/demo-image-0021-768x432.webp"
+            />
+            <WorkExperience />
           </div>
         </div>
-        <div className="absolute  bg-[rgba(99,102,241,0.4)] w-40 h-40 blur-3xl -z-10  left-0  shadow-[0_0_35px_15px_rgba(255,193,69,0.8)]  origin-bottom-left"></div>
       </div>
-     
     </div>
   );
 };
 
 export default ArticleDetail;
+

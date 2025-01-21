@@ -25,27 +25,27 @@ const WorkExperience: React.FC = () => {
   return (
     <div className="max-w-sm  bg-black rounded-lg shadow-md text-white/50 relative overflow-hidden">
       <div className='p-6'>
-        <h4 className="text-sm font-semibold uppercase text-gray-100">Work Experience</h4>
+        <h4 className="text-sm font-semibold uppercase text-gray-100">health Experience</h4>
 
         {/* Experience items */}
         <div className="mt-4">
           <ExperienceItem
-            title="Product Designer"
-            company="Pioneer"
-            startDate="2022"
+            title="Dr Singh"
+            company="Apollo"
+            startDate="2024"
             endDate="Now"
           />
           <ExperienceItem
-            title="Product Designer"
-            company="Digital"
+            title="Dr Pranav "
+            company="Icu"
             startDate="2020"
-            endDate="2022"
+            endDate="Now"
           />
           <ExperienceItem
-            title="UX/UI Designer"
-            company="Digital"
+            title="Dr Dey"
+            company="Calcutta Hospital"
             startDate="2017"
-            endDate="2020"
+            endDate="Now"
           />
         </div>
       </div>
