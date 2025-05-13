@@ -11,7 +11,7 @@ interface ArticleCardProps {
 
 const ArticleCard2: React.FC<ArticleCardProps> = ({ category, author, date, title, imageUrl }) => {
   return (
-    <div className="relative max-w-lg h-72 rounded-lg overflow-hidden shadow-lg">
+    <div className="relative max-w-lg h-72 font-poppins rounded-lg overflow-hidden shadow-lg">
       {/* Background Image */}
       < Image
       width={1000}
