@@ -58,7 +58,7 @@ const Page: React.FC = () => {
   };
 
   const ArticleCard: React.FC<{ article: Article }> = ({ article }) => (
-    <div className="mb-6 flex flex-col sm:flex-row border-b border-slate-300 py-4">
+    <div className="mb-6 flex flex-col font-poppins sm:flex-row border-b border-slate-300 py-4">
       <div className="relative mb-4 sm:mb-0 sm:mr-6 w-full sm:w-[50%] h-64">
         <div className="absolute top-5 left-4 rounded-md py-1 px-1 text-sm bg-white font-semibold text-gray-500 z-10">
           {article.category}
@@ -73,16 +73,16 @@ const Page: React.FC = () => {
       </div>
 
       <div className="flex-1">
-        <h6 className="text-slate-100 font-semibold text-xs">
+        <h6 className="text-slate-100 font-medium text-xs">
           {article.author} on {article.date}
         </h6>
-        <h3 className="mt-2 text-lg font-bold text-[rgb(248,248,252)]">
+        <h3 className="mt-2 text-lg font-medium text-neutral-200">
           {article.title}
         </h3>
         <p className="mt-2 text-sm text-gray-400">{article.description}</p>
         <div className="mt-4">
           <Link href={`/blogs/${createSlug(article.title)}`}>
-            <button className="bg-gradient-to-r from-yellow-700 to-black/60 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:from-indigo-500 hover:to-indigo-700 transition-colors duration-300">
+            <button className="bg-gradient-to-r from-yellow-700 to-black/60 text-white font-normal py-2 px-4 rounded-lg shadow-md hover:from-indigo-500 hover:to-indigo-700 transition-colors duration-300">
               Discover More
             </button>
           </Link>
@@ -94,7 +94,7 @@ const Page: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <div className="px-4 sm:px-8">
+      <div className="px-4 font-poppins sm:px-8">
         {/* Header Section */}
         <div className="px-4 py-12 border-b border-slate-300">
           <div className="text-center">

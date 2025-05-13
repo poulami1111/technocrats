@@ -22,12 +22,12 @@ const BloggerCard: React.FC = () => {
         {/* Blogger info */}
         <div className="ml-4 z-10">
           <h2 className="text-lg font-semibold">Ethan Caldwell</h2>
-          <p className="text-sm text-gray-200">Reflective Blogger</p>
+          <p className="text-sm text-neutral-200">Doctor</p>
         </div>
       </div>
 
       {/* Description */}
-      <p className="mt-4 text-gray-200 text-sm">
+      <p className="mt-4 text-neutral-400 text-sm">
         Ethan Caldwell shares thoughtful insights and reflections on life, culture, and personal growth. 
         His work explores the intersections of creativity and experience, offering readers unique perspectives.
       </p>

@@ -5,11 +5,11 @@ import Image from "next/image";
 
 const Imagebackground = () => {
   return (
-    <div className="relative ">
+    <div className="relative font-poppins">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10 h-[150vh]">
         <Image
-          src="/images/man.jpg"
+          src="/images/hero.jpg"
           alt="background"
           width={1600}
           height={1200}
@@ -25,7 +25,7 @@ const Imagebackground = () => {
         {/* Main Content */}
         <div className="items-center justify-center hidden md:block min-h-screen">
           {/* Glass Divs for Health Info */}
-          <div className="flex flex-wrap gap-6 justify-center mt-12 px-4">
+          <div className="flex flex-wrap gap-6 justify-center  px-4">
             <div className="bg-white/5 backdrop-blur-lg h-24 absolute inset-0 left-8 top-16 border border-white/30 p-4 rounded-xl shadow-lg max-w-xs">
               <h3 className="text-lg font-semibold text-white">
                 AI-Powered Diagnostics
