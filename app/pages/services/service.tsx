@@ -1,17 +1,28 @@
 "use client";
-import Navbar from "@/app/components/Navbar";
+
 import React, { useState } from "react";
 import { SiPolestar } from "react-icons/si";
+import Navbar from "@/app/components/Navbar";
 
-
-// Props interface for Page component
 interface PageProps {
   setUploadedImage: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+interface DiseaseDetails {
+  category: string;
+  description: string;
+  diet: string[];
+  effect_of_disease: string;
+  most_likely_cause: string;
+  name: string;
+  precautions: string[];
+  symptoms: string[];
 }
 
 const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [diseaseDetails, setDiseaseDetails] = useState<DiseaseDetails | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -37,16 +48,49 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
     }
   };
 
-  const handleGetReport = () => {
-    if (selectedFile) {
+  const handleGetReport = async () => {
+    if (!selectedFile) {
+      alert("Please upload an image first.");
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+
+      const response = await fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+        mode: 'cors',
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Network error occurred' }));
+        throw new Error(errorData.error || "Failed to upload image");
+      }
+
+      const data = await response.json();
+      console.log("API Response in service:", data); // Debug log
+
+      // Convert image to base64 for preview
       const reader = new FileReader();
       reader.onload = () => {
         const base64Image = reader.result as string;
+        console.log("Setting uploaded image:", base64Image.substring(0, 100) + "..."); // Debug log
+        // Pass both the image and the API response data
         setUploadedImage(base64Image);
+        // Store the API response in localStorage temporarily
+        localStorage.setItem('diagnosisData', JSON.stringify(data));
       };
       reader.readAsDataURL(selectedFile);
-    } else {
-      alert("Please upload an image first.");
+
+    } catch (error: any) {
+      console.error("Upload error:", error);
+      alert(error.message || "An error occurred during upload");
     }
   };
 
@@ -54,15 +98,12 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       <Navbar />
 
-      {/* Hero Section */}
       <div className="relative flex-1 flex flex-col items-center justify-center px-4 pt-20 pb-12">
-        {/* Background Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FF9D23]/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
         </div>
 
-        {/* Main Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
             Are you ready to get healthy?
@@ -71,7 +112,6 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
             Upload your medical image and get an instant analysis report. Our AI-powered system will help you understand your health better.
           </p>
 
-          {/* Upload Card */}
           <div className="w-full max-w-md mx-auto bg-gray-800/40 backdrop-blur-md border border-gray-700/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="space-y-6">
               <div className="text-center">
@@ -83,7 +123,6 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
                 </p>
               </div>
 
-              {/* Upload Area */}
               <div
                 className={`relative border-2 border-dashed rounded-xl p-8 transition-all duration-300 ${isDragging
                   ? "border-[#FF9D23] bg-[#FF9D23]/5"
@@ -116,9 +155,7 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
                     <p className="text-white font-medium mb-1">
                       {selectedFile ? "File Selected" : "Drop your file here"}
                     </p>
-                    <p className="text-gray-400 text-sm">
-                      or click to browse
-                    </p>
+                    <p className="text-gray-400 text-sm">or click to browse</p>
                   </div>
                 </label>
                 <input
@@ -140,7 +177,6 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
                 )}
               </div>
 
-              {/* Action Button */}
               <button
                 onClick={handleGetReport}
                 disabled={!selectedFile}
@@ -154,10 +190,54 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
             </div>
           </div>
 
-          {/* Additional Info */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            {diseaseDetails && (
+              <div className="col-span-3 bg-gray-800/30 rounded-xl backdrop-blur-sm p-6 mb-8">
+                <h2 className="text-2xl font-bold text-white mb-4">{diseaseDetails.name}</h2>
+                <p className="text-gray-300 mb-4">{diseaseDetails.description}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FF9D23] mb-2">Symptoms</h3>
+                    <ul className="text-gray-300">
+                      {diseaseDetails.symptoms.map((symptom, index) => (
+                        <li key={index} className="mb-1">• {symptom}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FF9D23] mb-2">Precautions</h3>
+                    <ul className="text-gray-300">
+                      {diseaseDetails.precautions.map((precaution, index) => (
+                        <li key={index} className="mb-1">• {precaution}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FF9D23] mb-2">Recommended Diet</h3>
+                    <ul className="text-gray-300">
+                      {diseaseDetails.diet.map((item, index) => (
+                        <li key={index} className="mb-1">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#FF9D23] mb-2">Additional Information</h3>
+                    <div className="text-gray-300">
+                      <p className="mb-2"><span className="font-semibold">Category:</span> {diseaseDetails.category}</p>
+                      <p className="mb-2"><span className="font-semibold">Effects:</span> {diseaseDetails.effect_of_disease}</p>
+                      <p><span className="font-semibold">Likely Causes:</span> {diseaseDetails.most_likely_cause}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="p-4 bg-gray-800/30 rounded-xl backdrop-blur-sm">
-              <div className="text-[#FF9D23] mb-2"> <SiPolestar/></div>
+              <div className="text-[#FF9D23] mb-2"> <SiPolestar /></div>
               <h3 className="text-white font-medium mb-1">Quick Analysis</h3>
               <p className="text-gray-400 text-sm">Get results in seconds</p>
             </div>
@@ -179,6 +259,7 @@ const Page: React.FC<PageProps> = ({ setUploadedImage }) => {
 };
 
 export default Page;
+
 
 
 
