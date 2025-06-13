@@ -25,11 +25,7 @@ const AppPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  // This function will be called from the Page component with both image URL and file
-  const handleImageUpload = (imageUrl: string, file: File) => {
-    setUploadedImage(imageUrl);
-    setImageFile(file);
-  };
+  
 
   useEffect(() => {
     if (uploadedImage && imageFile) {
